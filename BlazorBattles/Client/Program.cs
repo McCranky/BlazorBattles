@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using BlazorBattles.Client.Services;
+using Blazored.Toast;
 
 namespace BlazorBattles.Client
 {
@@ -17,7 +19,10 @@ namespace BlazorBattles.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
+            builder.Services.AddBlazoredToast();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<IBananaService, BananaService>();
+            builder.Services.AddScoped<IUniteService, UniteService>();
 
             await builder.Build().RunAsync();
         }

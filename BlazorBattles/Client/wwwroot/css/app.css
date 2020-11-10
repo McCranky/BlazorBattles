@@ -138,7 +138,7 @@ app {
 
 @media (max-width: 767.98px) {
     .main .top-row:not(.auth) {
-        display: none;
+        /*display: none;*/
     }
 
     .main .top-row.auth {
@@ -180,4 +180,16 @@ app {
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+}
+
+.top-menu{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+
+.army-list{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
 }
